@@ -11,3 +11,5 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 end
+
+
