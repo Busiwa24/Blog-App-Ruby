@@ -1,30 +1,18 @@
-<section class="user-container d-flex">
-  <div class="user-img">
-    <%= image_tag("user/user_logo.png", width:'100%', height:'100%') %>
+<section>
+   <div class="user_card">
+    <%= render partial: "users/user_details", locals: { user: @user } %>
   </div>
-  <div class="user-data d-flex">
-    <h2><%= @user.name %></h2>
-    <p>Number of posts: <%= @user.posts_counter %></p>
-  </div>
-</section>
 
-<% @posts.each do |post| %>
-<section class="comments-section">
-  <div class="posts-container">
-    <div class="posts-details d-flex">
-      <h2 class="posts-id"><a href="/users/<%= @user.id %>/posts/<%=post.id%>"><%= post.title %></a></h2>
-      <p class="posts-body"><%= post.text %></p>
-      <p class="posts-counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
-    </div>
-    <% unless post.recent_comments.empty? %>
-    <div class="posts-comments d-flex">
-    <% post.recent_comments.each do |comment| %>
-      <p class="users-comment">
-       <%= comment.user.name %>: <%= comment.text %>
-     </p>
-    <% end %>
-    </div>
-    <% end %>
-  </div>
+  <div class="post_comments">
+   <% @posts.each do |p| %>
+   <ul class="all_posts posts">
+   <li>
+   <%= render partial: "post_details", locals: { post: p } %>
+   </li>
+   </ul>
+   <%= render partial: "comments_section", locals: { comments: p.recent_comments } %>
+   <% end %>
+   </div>
+
+   <button class="btn btn-1">Pagination</button>
 </section>
-<%end%>

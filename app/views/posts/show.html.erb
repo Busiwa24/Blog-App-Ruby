@@ -1,21 +1,17 @@
-<section class="posts-section">
-  <div class="post-header d-flex">
-    <h2 class="post-title"><%= @post.title %></h2>
-    <p class="post-data-counter">
-      Comments: <%= @post.comments_counter %>, Likes:<%= @post.likes_counter %>
-    </p>
+<div>
+  <div class="post">
+    <div class="post_head">
+        <h2 class="post__title"><%= @post.title %> by <%= @user.name %></h2>
+      <div class="post__likes_comments_counter">
+        <p class="show-li">Comments : <%= @post.comments.size%>  Likes : <%= @post.likes.size %> </p>
+      </div>
+    </div>
+    <p class="post__text"><%= @post.text %> </p>
   </div>
-  <p class="post-data-counter">
-    <%= @post.text %>
-  </p>
-</section>
 
-<% unless @post.comments.empty? %>
-<section class="posts-section-comments d-flex">
-<% @post.comments.each do |comment| %>
-      <p class="users-comment">
-       <%= comment.user.name %>: <%= comment.text %>
-     </p>
-    <% end %>
-    </section>
-    <% end %>
+    <%= render partial: "comments_section", locals: { comments: @post.comments } %>
+
+</div>
+
+
+

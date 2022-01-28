@@ -1,6 +1,4 @@
-class ApplicationRecord < ActiveRecord::Base
-  primary_abstract_class
-
+class ApplicationController < ActionController::Base
   def current_user
     User.first
   end

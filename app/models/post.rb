@@ -1,16 +1,14 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  # A method that updates the posts counter for a user.
+  belongs_to :author, class_name: 'User'
 
-  def update_counter(num, user_id)
-    User.find_by(id: user_id).update(posts_counter: num)
+  has_many :comments
+  has_many :likes
+
+  def update_posts_counter
+    author.increment!(:posts_counter)
   end
 
-  # A method which returns the 5 most recent comments for a given post.
-
-  def recent_comments()
-    comments.most_recent
+  def recent_comments
+    comments.limit(5).order(created_at: :desc)
   end
 end
