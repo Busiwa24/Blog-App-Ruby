@@ -30,3 +30,4 @@ If you're on Windows, consider installing a version lower than 3.0 as it is know
 # 🤝 Contributing
 
 Feel free to check the [issues page](https://github.com/Busiwa24/Blog-App/issues).
+
