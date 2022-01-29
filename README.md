@@ -19,13 +19,18 @@ If you're on Windows, consider installing a version lower than 3.0 as it is know
   - Run `rails s` to start the server.
   - Open up the page `localhost:3000` on your browser to display the app.
 
+  ### Test
+
+Run `bundle exec rspec` to run tests
+
 ## Author
 
-👤 **Robert Baiesita**
+👤 Busiwa Liuma
 
-- GitHub: [@ReshyResh](https://github.com/ReshyResh)
-- LinkedIn: [Robert Baiesita](https://linkedin.com/in/ReshyResh)
+-GitHub: (https://github.com/Busiwa24) 
+-Twitter: (https://twitter.com/busiwaliuma) 
+-LinkedIn: (https://www.linkedin.com/in/busiwa-liuma-28385b80/>)
 
 # 🤝 Contributing
 
-Feel free to check the [issues page](https://github.com/ReshyResh/Capstone-Javascript-APIs/issues/).
+Feel free to check the [issues page](https://github.com/Busiwa24/Blog-App-Ruby/issues/).
