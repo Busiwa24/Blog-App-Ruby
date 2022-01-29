@@ -18,7 +18,8 @@ If you're on Windows, consider installing a version lower than 3.0 as it is know
   - Setup the DB by running `rake db:setup`.
   - Run `rails s` to start the server.
   - Open up the page `localhost:3000` on your browser to display the app.
-
+  - 
+  Run tests with 'bun
 ## Author
 
 👤 Busiwa Liuma
