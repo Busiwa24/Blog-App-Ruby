@@ -1,31 +1,30 @@
 require 'rails_helper'
-require 'pry'
 
 RSpec.describe User, type: :model do
-  describe 'User Model' do
-    subject { User.find(1) }
-
-    it 'checks if subject is invalid if there is no name' do
-      subject.name = nil
-      expect(subject).to_not be_valid
-    end
-
-    it 'tests post counter to be less than 0' do
-      subject.posts_counter = - 5
-      expect(subject).to_not be_valid
-    end
+  subject do
+    User.new(created_at: Time.now, updated_at: Time.now, name: 'User 1', photo: 'Random URL', bio: 'Random text',
+             posts_counter: 0)
   end
 
-  describe 'User Model methods' do
-    before do
-      6.times do |number|
-        subject.id = 1
-        Post.create(title: 'title', text: "test post #{number}", user: subject)
-      end
-    end
+  before { subject.save }
 
-    it 'loads only the first three posts' do
-      expect(subject.recent_posts.length).to eq(3)
-    end
+  it 'Name should be present' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Photo should be present' do
+    subject.photo = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Bio should be present' do
+    subject.bio = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Posts counter should start at 0' do
+    subject.posts_counter = -5
+    expect(subject).to_not be_valid
   end
 end

@@ -1,54 +1,31 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+![](https://img.shields.io/badge/Ruby-red)
 
-# Blog App
+# Rails - Blog App
+Simple blog app to understand RoR basics.
 
-> This is a blog app. It allows its people to register and be users able to add,modify,delete posts of their own
+# Built with
+  - Ruby
+  - RoR
 
+# Installation 
+Make sure you have the latest version of Ruby installed.
 
-## Built With
+If you're on Windows, consider installing a version lower than 3.0 as it is known to cause installation issues with the `pg` gem.
+  - Clone the repo.
+  - Run `bundle install` in the command line to install the dependencies.
+  - Make sure to create a new user that will be used to access the DB with the credentials in `database.yml`.
+  - Setup the DB by running `rake db:setup`.
+  - Run `rails s` to start the server.
+  - Open up the page `localhost:3000` on your browser to display the app.
 
-- Ruby
-- RoR
+## Author
 
-## Getting Started
+👤 **Robert Baiesita**
 
-- Run git clone https://github.com/AmineHLub/blog-app to get a local clone
+- GitHub: [@ReshyResh](https://github.com/ReshyResh)
+- LinkedIn: [Robert Baiesita](https://linkedin.com/in/ReshyResh)
 
-### Prerequisites
+# 🤝 Contributing
 
-- Make sure you have Ruby and RoR installed
-- Run bundle install
-
-### Run
-
-Run rails s
-
-### Run tests
-
-Run rspec
-
-👤 **Mohamed Amine**
-
-- GitHub: [@AmineHLub](https://github.com/AmineHLub)
-- Twitter: [@Amino47612441](https://twitter.com/Amino47612441)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mohamed-amine-hajltaief-b18863163/)
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-Feel free to check the [issues page](../../issues/).
-
-## Show your support
-
-Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
-
-## 📝 License
-
-This project is [MIT](./MIT.md) licensed.
+Feel free to check the [issues page](https://github.com/ReshyResh/Capstone-Javascript-APIs/issues/).

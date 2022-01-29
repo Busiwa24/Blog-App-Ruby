@@ -1,15 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe 'Comment model' do
-    subject { Comment.new(text: 'test post 1', user_id: 1, post_id: 1) }
+  subject { Comment.new(created_at: Time.now, updated_at: Time.now, user_id: 1, post_id: 1, text: 'Random comment') }
 
-    before { subject.save }
+  before { subject.save }
 
-    it 'check if it increases the comments' do
-      prev = Post.find(1).comments_counter
-      subject.update_commment_count
-      expect(Post.find(1).comments_counter).to eq(prev + 1)
-    end
+  it 'Text should be present' do
+    subject.text = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'User ID should be a number' do
+    subject.user_id = 'pizza'
+    expect(subject).to_not be_valid
+  end
+
+  it 'Post ID should be a number' do
+    subject.post_id = 'pasta'
+    expect(subject).to_not be_valid
   end
 end
