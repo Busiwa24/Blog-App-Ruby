@@ -1,12 +1,11 @@
 class User < ApplicationRecord
   validates :name, presence: true
-  validates :posts_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-
-  has_many :posts, dependent: :destroy
-  has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
+  has_many :posts
+  has_many :likes, through: :posts
+  has_many :comments, through: :posts
 
   def recent_posts
-    posts.limit(3).order(created_at: :desc)
+    posts.includes(:comments).last(3)
   end
 end
