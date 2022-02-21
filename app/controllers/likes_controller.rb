@@ -1,14 +1,21 @@
 class LikesController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @new_like = @post.likes.create(author_id: current_user.id, post_id: @post.id)
+    post = Post.find_by(id: params['post_id'])
+    flag = false
+    post.likes.each do |like|
+      flag = true if like.user_id == current_user.id
+    end
+    return unless flag == false
 
+    newlike = Like.new(created_at: Time.now, updated_at: Time.now, user_id: current_user.id,
+                       post_id: params['post_id'])
     respond_to do |format|
       format.html do
-        if @new_like.save
-          redirect_to user_post_path(@post.author_id, @post.id), notice: 'Liked 👍'
+        if newlike.save
+          flash[:success] = 'Post liked successfully'
+          redirect_to user_posts_path
         else
-          redirect_to user_post_path(@post.author_id, @post.id), alert: 'Unable to like'
+          flash.now[:error] = 'Error: Like could not be created'
         end
       end
     end

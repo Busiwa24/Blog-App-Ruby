@@ -1,8 +1,14 @@
 class Like < ApplicationRecord
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
   belongs_to :post
 
-  def update_likes_counter
-    post.increment!(:likes_counter)
+  validates :id, uniqueness: true
+  validates :user_id, presence: true, numericality: { only_integer: true }
+  validates :post_id, presence: true, numericality: { only_integer: true }
+
+  # A method that updates the likes counter for a post.
+
+  def update_likes(num, post_id)
+    Post.find_by(id: post_id).update(likes_counter: num)
   end
 end

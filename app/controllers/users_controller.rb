@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
+  def index; end
 
   def show
-    @user = User.find(params[:id])
+    return unless User.exists?(id: params['id'])
+
+    @user = User.includes(posts: %i[comments likes]).find_by(id: params['id'])
+    render '../views/layouts/partials/_userdetails'
   end
 end

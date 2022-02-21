@@ -19,6 +19,10 @@ If you're on Windows, consider installing a version lower than 3.0 as it is know
   - Run `rails s` to start the server.
   - Open up the page `localhost:3000` on your browser to display the app.
 
+  ### Test
+
+Run `bundle exec rspec` to run tests
+
 ## Author
 
 👤 Busiwa Liuma
@@ -29,4 +33,4 @@ If you're on Windows, consider installing a version lower than 3.0 as it is know
 
 # 🤝 Contributing
 
-Feel free to check the [issues page](https://github.com/Busiwa24/Blog-App/issues).
+Feel free to check the [issues page](https://github.com/Busiwa24/Blog-App-Ruby/issues/).
